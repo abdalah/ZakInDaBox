@@ -1,18 +1,22 @@
-
 {
-  "name": "abdalah",
-  "version": "0.1.0",
-  "description": "My site",
-  "main": "index.html",
+  "name": "zakindabox",
+  "version": "1.0.0",
+  "description": "Very good game",
+  "main": "room.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
+    "url": "git+https://github.com/abdalah/ZakInDaBox.git"
   },
-  "keywords": [
-    "heroku",
-  ],
-  "author": "Abdalah El-Barrad"
-  "license": "MIT"
+  "author": "Abdalah El-Barrad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdalah/ZakInDaBox/issues"
+  },
+  "homepage": "https://github.com/abdalah/ZakInDaBox#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1"
+  }
 }
