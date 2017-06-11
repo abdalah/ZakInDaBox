@@ -28,21 +28,19 @@ function create() {
 
 
     var wall1 = platforms.create(100, game.world.height - 100, 'wall');
-    wall1.scale.setTo(1.633, .25);
+    wall1.scale.setTo(2, .5);
     wall1.body.immovable = true;
 
     var wall2 = platforms.create(100, 100, 'wall');
-    wall2.scale.setTo(1.633, .25);
+    wall2.scale.setTo(2, .5);
     wall2.body.immovable = true;
 
     var wall3 = platforms.create(100, 100, 'wall');
-    wall3.scale.setTo(.04, 6.5);
-    //wall3.angle -= 90;
+    wall3.scale.setTo(.04, 13);
     wall3.body.immovable = true;
 
     var wall4 = platforms.create(game.world.width - 100, 100, 'wall');
-    wall4.scale.setTo(.04, 6.5);
-    //wall4.angle -= 90;
+    wall4.scale.setTo(.04, 13);
     wall4.body.immovable = true;
 
     colton = game.add.sprite(200, 200, 'colton');
@@ -62,13 +60,15 @@ function create() {
     colton.body.onCollide = new Phaser.Signal();
     colton.body.onCollide.add(hitSprite, this);
 
-    music.play();
-    music.pause();
-
 }
 
 function hitSprite(){
-    music.resume();
+    if(music.paused === true){
+        music.resume();
+    }
+    else{
+        music.play();
+    }
 }
 
 function update() {
