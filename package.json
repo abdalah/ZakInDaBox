@@ -1,29 +1,26 @@
 {
-  "name": "phaser-pong",
-  "version": "0.9.0",
-  "description": "pong game on phaser.js",
-  "main": "index.js",
+  "name": "zakindabox",
+  "version": "1.0.0",
+  "description": "This is my game",
+  "main": "index.html",
   "dependencies": {
-    "bower": "~1.2.8",
-    "express": "~3.4.7"
+    "grunt": "^1.0.1"
   },
+  "devDependencies": {},
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/deiga/phaser-pong.git"
+    "url": "git+https://github.com/abdalah/ZakInDaBox.git"
   },
   "keywords": [
-    "phaser.js"
+    "Game"
   ],
-  "author": "Timo Sand",
-  "license": "MIT",
+  "author": "Abdalah El-Barrad",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/deiga/phaser-pong/issues"
+    "url": "https://github.com/abdalah/ZakInDaBox/issues"
   },
-  "homepage": "https://github.com/deiga/phaser-pong",
-  "engines": {
-    "node": "0.10.20"
-  }
+  "homepage": "https://github.com/abdalah/ZakInDaBox#readme"
 }
