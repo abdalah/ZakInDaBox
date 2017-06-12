@@ -4,6 +4,7 @@
   "description": "This is my game",
   "main": "index.html",
   "dependencies": {
+    "bundle": "^0.2.3",
     "grunt": "^1.0.1"
   },
   "devDependencies": {},
