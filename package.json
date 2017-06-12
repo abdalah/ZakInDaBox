@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This is my game",
   "main": "index.html",
+  "Dependencies": {},
   "devDependencies": {
     "grunt": "^1.0.1"
   }
