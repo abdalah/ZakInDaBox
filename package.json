@@ -1,26 +1,26 @@
 {
-  "name": "zakindabox",
-  "version": "1.0.0",
-  "description": "This is my game",
-  "main": "index.html",
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "^1.0.1"
-  }
-},
+  "name": "node-js-getting-started",
+  "version": "0.2.6",
+  "description": "A sample Node.js app using Express 4",
+  "engines": {
+    "node": "6.10.2"
+  },
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "ejs": "2.5.6",
+    "express": "4.15.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abdalah/ZakInDaBox.git"
+    "url": "https://github.com/heroku/node-js-getting-started"
   },
   "keywords": [
-    "Game"
+    "node",
+    "heroku",
+    "express"
   ],
-  "author": "Abdalah El-Barrad",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/abdalah/ZakInDaBox/issues"
-  },
-  "homepage": "https://github.com/abdalah/ZakInDaBox#readme"
+  "license": "MIT"
+}
