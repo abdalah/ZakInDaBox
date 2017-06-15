@@ -1,18 +1,3 @@
-/*var express = require('express');
-var app = express();
-var path = require('path');
-
-app.set('view engine', 'ejs');
-
-// viewed at http://localhost:8080
-app.get('/', function(req, res) {
-    res.render('index');
-});
-
-app.listen(3000);
-*/
-
-
 var express = require('express')
     , app = module.exports = express();
 
