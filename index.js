@@ -1,6 +1,8 @@
 var express = require('express')
     , app = module.exports = express();
 
+process.env.NODE_ENV = 'production';
+
 app.use(express.static(__dirname + '/public'));
  
 // Using the .html extension instead of
