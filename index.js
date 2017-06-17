@@ -23,8 +23,5 @@ app.get('/', function(req, res){
     pageTitle: 'EJS Demo'
   });
 });
- 
-if (!module.parent) {
-  app.listen(3000);
-  console.log(__dirname);
-}
+
+app.listen(process.env.PORT || 3000);
