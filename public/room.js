@@ -74,11 +74,11 @@ function update() {
     }
 
     if(game.input.pointer1.active && !game.input.pointer2.active){
-        if (game.input.pointer1.x < game.width/3 && colton.x > colton.width-15)
+        if (game.input.pointer1.x < game.width/3 && colton.x > colton.width+15)
         {
             colton.body.velocity.x = -150;
         }
-        else if (game.input.pointer1.x > 2*game.width/3 && colton.x+colton.width < game.width-colton.width+15)
+        else if (game.input.pointer1.x > 2*game.width/3 && colton.x+colton.width < game.width-colton.width-15)
         {
             //  Move to the left
             colton.body.velocity.x = 150;
@@ -88,7 +88,7 @@ function update() {
             //  Move to the left
             colton.body.velocity.y = -150;
         }
-        else if (game.input.pointer1.y > 2*game.height/3 && colton.y+colton.height < game.height-colton.width+15)
+        else if (game.input.pointer1.y > 2*game.height/3 && colton.y+colton.height < game.height-colton.width-15)
         {
             //  Move to the left
             colton.body.velocity.y = 150;
