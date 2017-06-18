@@ -50,6 +50,7 @@ function create() {
     cursors = game.input.keyboard.createCursorKeys();
 
     music = game.add.audio('song');
+    music.play();
 
     game.input.addPointer();
 
