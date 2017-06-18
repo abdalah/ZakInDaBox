@@ -2,12 +2,13 @@
  * Created by abdalah on 6/4/17.
  */
 
-var game = new Phaser.Game(1000, 600, Phaser.AUTO, '', {preload:preload, create: create, update:update});
+var game = new Phaser.Game(900, 600, Phaser.AUTO, '', {preload:preload, create: create, update:update});
 
 var colton;
-var platforms;
 var comp;
 var music;
+var walls;
+var floor;
 
 function preload() {
     game.load.image('colton', 'sprites/mushroom2.png');
@@ -18,96 +19,78 @@ function preload() {
 
 function create() {
 
-    game.stage.backgroundColor = '#000000';
+    game.stage.backgroundColor = '#5572a5';
 
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    platforms = game.add.group();
-    game.physics.enable(platforms, Phaser.Physics.ARCADE);
-    platforms.enableBody = true;
+    floor = game.add.graphics(0, 0);
+    floor.beginFill(0x55a558);
+    floor.drawRect(50, 50, 815, 515);
+    floor.endFill();
+
+    walls = game.add.graphics(0, 0);
+    walls.beginFill(0xa58855);
+    walls.drawRect(50, game.world.height - 50, 815, 15);
+    walls.drawRect(50, 50, 815, 15);
+    walls.drawRect(game.world.width - 50, 50, 15, 500);
+    walls.drawRect(50, 50, 15, 500);
+    walls.endFill();
 
 
-    var wall1 = platforms.create(100, game.world.height - 100, 'wall');
-    wall1.scale.setTo(2, .5);
-    wall1.body.immovable = true;
-
-    var wall2 = platforms.create(100, 100, 'wall');
-    wall2.scale.setTo(2, .5);
-    wall2.body.immovable = true;
-
-    var wall3 = platforms.create(100, 100, 'wall');
-    wall3.scale.setTo(.04, 13);
-    wall3.body.immovable = true;
-
-    var wall4 = platforms.create(game.world.width - 100, 100, 'wall');
-    wall4.scale.setTo(.04, 13);
-    wall4.body.immovable = true;
+    comp = game.add.sprite(game.world.width/2, 65, 'comp');
+    comp.scale.setTo(.25, .25);
+    comp.y -= comp.height;
+    game.physics.arcade.enable(comp, Phaser.Physics.ARCADE);
+    comp.body.immovable = true;
 
     colton = game.add.sprite(200, 200, 'colton');
     game.physics.arcade.enable(colton, Phaser.Physics.ARCADE);
-    colton.body.collideWorldBounds = true;
-
-    comp = game.add.sprite(game.world.width/2, 80, 'comp');
-    comp.scale.setTo(.25, .25)
-    game.physics.arcade.enable(comp, Phaser.Physics.ARCADE);
-    comp.body.immovable = true
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
 
     music = game.add.audio('song');
 
-    colton.body.onCollide = new Phaser.Signal();
-    colton.body.onCollide.add(hitSprite, this);
+    game.input.addPointer();
 
-}
-
-function hitSprite(){
-    if(music.paused === true){
-        music.resume();
-    }
-    else{
-        music.play();
-    }
 }
 
 function update() {
-
-    game.physics.arcade.collide(colton, platforms);
-    game.physics.arcade.collide(colton, comp);
-    game.physics.arcade.collide(colton, comp, music.play);
 
     //  Reset the coltons velocity (movement)
     colton.body.velocity.x = 0;
     colton.body.velocity.y = 0;
 
-    if (cursors.left.isDown)
+    if(colton.y < 67 && colton.x < game.width/2+comp.width+1 && colton.x+colton.width > game.width/2-1){
+        music.resume();
+    }
+    else{
+        music.pause();
+    }
+
+    if ((cursors.left.isDown || game.input.pointer1.x < game.width/3 & game.input.pointer1.active) && colton.x > 65)
     {
         //  Move to the left
         colton.body.velocity.x = -150;
-        music.pause();
+        //music.pause();
     }
-    if (cursors.right.isDown)
+    else if ((cursors.right.isDown || game.input.pointer1.x > 2*game.width/3 & game.input.pointer1.active) && colton.x+colton.width < game.width-50)
     {
         //  Move to the left
         colton.body.velocity.x = 150;
-        music.pause();
+        //music.pause();
     }
-    if (cursors.up.isDown)
+    if ((cursors.up.isDown || game.input.pointer1.y < game.height/3 & game.input.pointer1.active) && colton.y > 65)
     {
         //  Move to the left
         colton.body.velocity.y = -150;
-        music.pause();
+        //music.pause();
     }
-    if (cursors.down.isDown)
+    else if ((cursors.down.isDown || game.input.pointer1.y > 2*game.height/3 & game.input.pointer1.active) && colton.y+colton.height < game.height-50)
     {
         //  Move to the left
         colton.body.velocity.y = 150;
-        music.pause();
+        //music.pause();
     }
 
-}
-
-function playSong(colton, comp) {
-    music.play();
 }
