@@ -87,13 +87,13 @@ function update() {
                 if (greatery)
                 {
                     if(colton.y < game.height-2*colton.height-15) {
-                        game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 150);
+                        game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 200);
                     }
                 }
                 else if (colton.y > colton.width-15)
                 {
                     if(colton.y > colton.height+15) {
-                        game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 150);
+                        game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 200);
                     }
                 }
             }
@@ -103,13 +103,13 @@ function update() {
             if (greatery)
             {
                 if(colton.y < game.height-colton.height-15) {
-                    game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 150);
+                    game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 200);
                 }
             }
             else if (colton.y > colton.width-15)
             {
                 if(colton.y > colton.height+15) {
-                    game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 150);
+                    game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 200);
                 }
             }
         }
@@ -125,13 +125,13 @@ function update() {
                 if (greatery)
                 {
                     if(colton.y < game.height-2*colton.height-15) {
-                        game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 150);
+                        game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 200);
                     }
                 }
                 else if (colton.y > colton.width-15)
                 {
                     if(colton.y > colton.height+15) {
-                        game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 150);
+                        game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 200);
                     }
                 }
             }
@@ -141,13 +141,13 @@ function update() {
             if (greatery)
             {
                 if(colton.y < game.height-colton.height-15) {
-                    game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 150);
+                    game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 200);
                 }
             }
             else if (colton.y > colton.width-15)
             {
                 if(colton.y > colton.height+15) {
-                    game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 150);
+                    game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 200);
                 }
             }
         }
@@ -157,22 +157,22 @@ function update() {
         if (cursors.left.isDown && colton.x > colton.width+15)
         {
             //  Move to the left
-            colton.body.velocity.x = -150;
+            colton.body.velocity.x = -200;
         }
         else if (cursors.right.isDown && colton.x+colton.width < game.width-colton.width-15)
         {
             //  Move to the left
-            colton.body.velocity.x = 150;
+            colton.body.velocity.x = 200;
         }
         if (cursors.up.isDown && colton.y > colton.width+15)
         {
             //  Move to the left
-            colton.body.velocity.y = -150;
+            colton.body.velocity.y = -200;
         }
         else if (cursors.down.isDown && colton.y+colton.height < game.height-colton.width-15)
         {
             //  Move to the left
-            colton.body.velocity.y = 150;
+            colton.body.velocity.y = 200;
         }
     }
 }
