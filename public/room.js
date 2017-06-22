@@ -102,7 +102,7 @@ function update() {
         {
             if (greatery)
             {
-                if(colton.y < game.height-colton.height-15) {
+                if(colton.y < game.height-2*colton.height-15) {
                     game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 200);
                 }
             }
@@ -140,7 +140,7 @@ function update() {
         {
             if (greatery)
             {
-                if(colton.y < game.height-colton.height-15) {
+                if(colton.y < game.height-2*colton.height-15) {
                     game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 200);
                 }
             }
