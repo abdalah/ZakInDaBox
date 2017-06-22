@@ -60,6 +60,9 @@ function create() {
 
 }
 
+var greater;
+var greatery;
+
 function update() {
 
     //  Reset the coltons velocity (movement)
@@ -73,47 +76,82 @@ function update() {
         music.pause();
     }
 
+
     if(game.input.pointer1.active && !game.input.pointer2.active){
-        if (game.input.pointer1.x < game.width/3 && colton.x > colton.width+15)
+        greater = game.input.pointer1.x > colton.x;
+        greatery = game.input.pointer1.y > colton.y;
+
+        if (greater)
         {
-            colton.body.velocity.x = -150;
+            if(colton.x < game.width-2*colton.width-15) {
+                if (greatery)
+                {
+                    if(colton.y < game.height-2*colton.height-15) {
+                        game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 150);
+                    }
+                }
+                else if (colton.y > colton.width-15)
+                {
+                    if(colton.y > colton.height+15) {
+                        game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 150);
+                    }
+                }
+            }
         }
-        else if (game.input.pointer1.x > 2*game.width/3 && colton.x+colton.width < game.width-colton.width-15)
+        else if (colton.x > colton.width+15)
         {
-            //  Move to the left
-            colton.body.velocity.x = 150;
+            if (greatery)
+            {
+                if(colton.y < game.height-colton.height-15) {
+                    game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 150);
+                }
+            }
+            else if (colton.y > colton.width-15)
+            {
+                if(colton.y > colton.height+15) {
+                    game.physics.arcade.moveToXY(colton, game.input.pointer1.x, game.input.pointer1.y, 150);
+                }
+            }
         }
-        if (game.input.pointer1.y < game.height/3 && colton.y > colton.width+15)
-        {
-            //  Move to the left
-            colton.body.velocity.y = -150;
-        }
-        else if (game.input.pointer1.y > 2*game.height/3 && colton.y+colton.height < game.height-colton.width-15)
-        {
-            //  Move to the left
-            colton.body.velocity.y = 150;
-        }
+
     }
-    else if(!game.input.pointer1.active && game.input.pointer2.active){
-        if (game.input.pointer2.x < game.width/3 && colton.x > colton.width+15)
+    if(!game.input.pointer1.active && game.input.pointer2.active){
+        greater = game.input.pointer2.x > colton.x;
+        greatery = game.input.pointer2.y > colton.y;
+
+        if (greater)
         {
-            colton.body.velocity.x = -150;
+            if(colton.x < game.width-2*colton.width-15) {
+                if (greatery)
+                {
+                    if(colton.y < game.height-2*colton.height-15) {
+                        game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 150);
+                    }
+                }
+                else if (colton.y > colton.width-15)
+                {
+                    if(colton.y > colton.height+15) {
+                        game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 150);
+                    }
+                }
+            }
         }
-        else if (game.input.pointer2.x > 2*game.width/3 && colton.x+colton.width < game.width-colton.width-15)
+        else if (colton.x > colton.width+15)
         {
-            //  Move to the left
-            colton.body.velocity.x = 150;
+            if (greatery)
+            {
+                if(colton.y < game.height-colton.height-15) {
+                    game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 150);
+                }
+            }
+            else if (colton.y > colton.width-15)
+            {
+                if(colton.y > colton.height+15) {
+                    game.physics.arcade.moveToXY(colton, game.input.pointer2.x, game.input.pointer2.y, 150);
+                }
+            }
         }
-        if (game.input.pointer2.y < game.height/3 && colton.y > colton.width+15)
-        {
-            //  Move to the left
-            colton.body.velocity.y = -150;
-        }
-        else if (game.input.pointer2.y > 2*game.height/3 && colton.y+colton.height < game.height-colton.width-15)
-        {
-            //  Move to the left
-            colton.body.velocity.y = 150;
-        }
+
     }
     else{
         if (cursors.left.isDown && colton.x > colton.width+15)
